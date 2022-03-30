@@ -90,4 +90,9 @@ function studentLastName () {
     renderStudents(studentsArray)
 }
 
-document.getElementById("lastname").addEventListener("keyup", studentLastname)
+function searchWord (){
+    let search = document.getElementById("lastname")
+    return search.value
+}
+
+document.getElementById("lastname").addEventListener("keyup", studentLastname())
