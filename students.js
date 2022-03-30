@@ -43,5 +43,36 @@ function credits (student){
     return creditsSum
 }
 
+//creates the courses for students
+function renderCourses (student){
+    let courseData = DATABASE.courses
+    let courses = []
+    for ( let i = 0; i < student.courses.length; i++){
+        let id = student.courses[i].courseId
+        courses.push(courseData[id])   
+    }
+    let courseDiv = []
+    for (let i= 0; i < courses.length; i++){
 
+        let div = document.createElement("div")
+        let studentCourse = student.courses[i]
+        let courseDataId = courseData[courses[i].courseId]
+
+        //if someone passes the course with all point the course get class done...
+        if (studentCourse.passedCredits == courseDataId.totalCredits){
+
+            let text = div.innerHTML =
+            `<div class="done"><h4>${courses[i].title}</h4>
+            <p>${studentCourse.started.semester} ${studentCourse.started.year} (${studentCourse.passedCredits} 0f ${courseDataId.totalCredits} credits)</p></div>`
+            courseDiv.push(text)}
+            //... otherwise it get this div that shows that the student did not pass the course 
+        else{
+            let text = div.innerHTML =
+            `<div><h4>${courses[i].title}</h4>
+            <p>${studentCourse.started.semester} ${studentCourse.started.year} (${studentCourse.passedCredits} 0f ${courseDataId.totalCredits} credits)</p></div>`
+            courseDiv.push(text)}
+
+    }
+    return courseDiv.toString().split(",").join(" ");
+}
 

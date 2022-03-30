@@ -63,3 +63,19 @@ p {
     border: solid black 2px;
     background-color: RGB(223, 207, 190);
 }
+
+#courses > .done {
+    background-color: lightgreen;
+}
+
+#students > .done {
+    background-color: lightgreen;
+}
+
+#courses > .notDone {
+    background-color: RGB(225, 93, 68);
+}
+
+#students > .notDone {
+    background-color: RGB(225, 93, 68);
+}
