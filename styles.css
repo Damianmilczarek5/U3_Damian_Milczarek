@@ -3,14 +3,16 @@ body {
 font-family: 'Times New Roman', Times, serif;
 }
 
-#wrapper {
+#mainWrapper {
     margin: 30px;
     padding: 20px;
     border: 3px solid green;
 }
+#search-box {
+    display: flex;
+}
 
 form {
-    width: 400px;
     background-color: RGB(223, 207, 190);
     padding: 10px;
     border-radius: 6px;
