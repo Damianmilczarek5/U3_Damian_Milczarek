@@ -53,3 +53,11 @@ p {
     margin-bottom: 5px;
     flex-shrink: 1;
 }
+
+#container {
+    margin-top: 15px;
+    padding: 6px;
+    border-radius: 6px;
+    border: solid black 2px;
+    background-color: RGB(223, 207, 190);
+}
