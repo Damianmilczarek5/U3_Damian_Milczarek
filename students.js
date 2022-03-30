@@ -21,6 +21,14 @@ div.innerHTML = `
     </div>`
     return div
 }
+// render students 
+function renderStudents (students){
+    let studentsElement = document.getElementById("wrapper")
+    for ( let student of students){
+        let studentElement = renderStudent(student.studentID)
+        studentsElement.appendChild(studentElement)
+    }
+}
 
 // function that renders stutends total credits 
 function credits (student){
@@ -34,4 +42,6 @@ function credits (student){
     }
     return creditsSum
 }
+
+
 
