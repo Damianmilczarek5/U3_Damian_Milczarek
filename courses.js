@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 "use strict";
 
 let allCourses = DATABASE.courses
@@ -47,7 +45,8 @@ function courseTotalCredits (id) {
 function courseResponsible (id) {
     let course = DATABASE.courses[id]
     let teachersNames = allTeachers.map((teacher) => teacher.firstName + " " + teacher.lastName + " " + `(${teacher.post})`)
+
     let responsible = course.courseResponsible
     return teachersNames[responsible]
 }
->>>>>>> Stashed changes
+

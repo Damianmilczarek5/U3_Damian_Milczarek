@@ -93,6 +93,8 @@ p {
     margin-left: 20px;
     padding: 10px;
     border-radius: 6px;
+    background-color: RGB(225, 93, 68);
+    border: 3px solid green;
 }
 
 #teachers > div {
@@ -108,6 +110,8 @@ p {
     margin-left: 5px; 
     padding: 10px;
     border-radius: 6px;
+    border: solid green 2px;
+    background-color: RGB(240, 210, 190);
 }
 
 #students {
@@ -119,4 +123,6 @@ p {
     margin-left: 5px;
     padding: 10px;
     border-radius: 6px;
+    background-color: lightcoral;
+    border: solid green 2px;
 }
