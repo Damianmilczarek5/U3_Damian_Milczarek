@@ -7,6 +7,7 @@ font-family: 'Times New Roman', Times, serif;
     margin: 30px;
     padding: 20px;
     border: 3px solid green;
+    background-color: RGB(240, 207, 190);
 }
 #search-box {
     display: flex;
@@ -115,8 +116,8 @@ p {
 }
 
 #students {
-    display: flex;
-    flex-shrink: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 #students > div {

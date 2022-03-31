@@ -32,6 +32,14 @@ function renderCourse(id){
     return div
 }
 
+function renderCourses (students){
+    let coursesElement = document.getElementById("wrapper")
+    for ( let course of students){
+        let courseElement = renderCourse(course.courseId)
+        coursesElement.appendChild(courseElement)
+    }
+}
+
 function courseTitle (id){
     let course = DATABASE.courses[id]
     return course.title
@@ -66,17 +74,59 @@ function allCourseTeachers(id){
 }
 
 function allCourseStudents (id){
-    let courseId = DATABASE.courses[id]
-    let students = []
-    for (let student of allStudents){
-        for (let courses of student.courses){
-            for (let i = 0; i < courses.length; i++){
-                if (courses[i].id == courseId){
-                    students.push(student.map((student) => student.firstName + " " + student.lastName + " " + `(${student.courses[i].passedCredits})`))
+    let studentsDiv = []
+    let courseId = DATABASE.courses[id].courseId
+    let students = allStudents.filter((student) => student.courses.some((course) => course.courseId == courseId))
+        for (let student of students){
+            let courseById = student.courses.filter((course) => course.courseId == courseId)
+            for (let i = 0; i < courseById.length; i++){
+                if (passedCredits(courseById[i], student)[i] == DATABASE.courses[id].totalCredits){
+                    let div = document.createElement("div")
+                    let content = div.innerHTML = `<div class="done">
+                    <p>${student.firstName} ${student.lastName} (${passedCredits(courseById[i], student)[i]} credits)</p>
+                    <h5>${courseStarted(courseById[i], student)[i]}</h5>
+                    </div>`
+                    studentsDiv.push(content)
+                } else{
+                    let div = document.createElement("div")
+                    let content = div.innerHTML = `<div>
+                    <p>${student.firstName} ${student.lastName} (${passedCredits(courseById[i], student)[i]} credits)</p>
+                    <h5>${courseStarted(courseById[i], student)[i]}</h5>
+                    </div>`
+                    studentsDiv.push(content)
                 }
             }
         }
-    }
-    return students.toString().split(",").join(" ");
+    return studentsDiv.toString().split(",").join(" ");
 }
 
+function passedCredits (takenCourse, student){
+    let passedCredit = student.courses.filter((course) => course.courseId == takenCourse.courseId).map((course) => course.passedCredits)
+    return passedCredit
+}
+
+function courseStarted (takenCourse, student){
+    let courseStart = student.courses.filter((course) => course.courseId == takenCourse.courseId).map((course) => `${course.started.semester} ${course.started.year}`)
+    return courseStart
+}
+
+function studentLastname (){
+    let coursesArray = []
+    for ( let i = 0; i < allCourses.length; i++){
+        document.querySelector("#wrapper").innerHTML = ""
+        if ("" == searchWord()){
+            document.querySelector("#wrapper").innerHTML = ""
+        } else if (allCourses[i].title.toLocaleLowerCase().includes(searchWord())) {
+            coursesArray.push(allCourses[i]);
+        } 
+
+    }
+    renderCourses(coursesArray)
+}
+
+function searchWord (){
+    let search = document.getElementById("course-title")
+    return search.value
+}
+
+document.getElementById("course-title").addEventListener("keyup", studentLastname)
