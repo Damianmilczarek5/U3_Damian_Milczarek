@@ -30,7 +30,7 @@ function renderStudents (students){
     }
 }
 
-// function that renders stutends total credits 
+// function that renders students total credits 
 function credits (student){
     let credits = []
     for (let course of student.courses){
@@ -68,7 +68,7 @@ function renderCourses (student){
             //... otherwise it get this div that shows that the student did not pass the course 
         else{
             let text = div.innerHTML =
-            `<div><h4>${courses[i].title}</h4>
+            `<div class="notDone"><h4>${courses[i].title}</h4>
             <p>${studentCourse.started.semester} ${studentCourse.started.year} (${studentCourse.passedCredits} 0f ${courseDataId.totalCredits} credits)</p></div>`
             courseDiv.push(text)}
 
@@ -76,7 +76,12 @@ function renderCourses (student){
     return courseDiv.toString().split(",").join(" ");
 }
 
+<<<<<<< Updated upstream
 function studentLastName () {
+=======
+// function for when user types in search box it filters trought possible hits
+function studentLastname (){
+>>>>>>> Stashed changes
     let studentsArray = []
     for (let i = 0; i < allStudents.length; i++){
         document.querySelector("#wrapper").innerHTML = ""
@@ -89,10 +94,15 @@ function studentLastName () {
     }
     renderStudents(studentsArray)
 }
-
+// function for seeing the value of letter in the search box 
 function searchWord (){
     let search = document.getElementById("lastname")
     return search.value
 }
+<<<<<<< Updated upstream
 
 document.getElementById("lastname").addEventListener("keyup", studentLastname())
+=======
+// eventlistener that indicates which key user presses on his keyboard
+document.getElementById("lastname").addEventListener("keyup", studentLastname)
+>>>>>>> Stashed changes
