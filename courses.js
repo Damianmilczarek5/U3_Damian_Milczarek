@@ -32,3 +32,19 @@ function renderCourse(id){
     return div
 }
 
+function courseTitle (id){
+    let course = DATABASE.courses[id]
+    return course.title
+}
+
+function courseTotalCredits (id) {
+    let course = DATABASE.courses[id]
+    return course.totalCredits
+}
+
+function courseResponsible (id) {
+    let course = DATABASE.courses[id]
+    let teachersNames = allTeachers.map((teacher) => teacher.firstName + " " + teacher.lastName + " " + `(${teacher.post})`)
+    let res = course.courseResponsible
+    return teachersNames[res]
+}
