@@ -50,3 +50,33 @@ function courseResponsible (id) {
     return teachersNames[responsible]
 }
 
+function allCourseTeachers(id){
+    let course = DATABASE.courses[id]
+    let teachersNames = allTeachers.map((teacher) => teacher.firstName + " " + teacher.lastName + " " + `(${teacher.post})`)
+    let teachers = []
+    for ( let i = 0; i < teachersNames.length; i++){
+        if (course.teachers.some((value) => value == i)){
+        let div = document.createElement("div")
+        let content = div.innerHTML = `<p>${teachersNames[i]}</p>`
+        teachers.push(content)
+        }
+    }
+
+    return teachers.toString().split(",").join(" ");
+}
+
+function allCourseStudents (id){
+    let courseId = DATABASE.courses[id]
+    let students = []
+    for (let student of allStudents){
+        for (let courses of student.courses){
+            for (let i = 0; i < courses.length; i++){
+                if (courses[i].id == courseId){
+                    students.push(student.map((student) => student.firstName + " " + student.lastName + " " + `(${student.courses[i].passedCredits})`))
+                }
+            }
+        }
+    }
+    return students.toString().split(",").join(" ");
+}
+
