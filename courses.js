@@ -7,8 +7,8 @@ let allStudents = DATABASE.students
 function renderCourse(id){
     let div = document.createElement("div")
     div.id = "container"
-    div.innerHTML =
-    ` <div id="course">
+    div.innerHTML =` 
+    <div id="course">
     <header>${courseTitle(id)} (${courseTotalCredits(id)} credits)</header>
     <div id="faculty">
         <div id="responsible">
@@ -31,3 +31,4 @@ function renderCourse(id){
     document.querySelector("#wrapper").appendChild(div)
     return div
 }
+
