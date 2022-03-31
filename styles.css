@@ -79,3 +79,44 @@ p {
 #students > .notDone {
     background-color: RGB(225, 93, 68);
 }
+
+#responsible {
+    margin-right: 20px;
+}
+
+#faculty {
+    display: flex;
+    flex-shrink: 1;
+}
+
+#responsible > p {
+    margin-left: 20px;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+#teachers > div {
+    display: flex;
+    flex-shrink: 1;
+}
+
+#teachers > div > :nth-child(1) {
+    margin-left: 20px;
+}
+
+#teachers > div > p {
+    margin-left: 5px; 
+    padding: 10px;
+    border-radius: 6px;
+}
+
+#students {
+    display: flex;
+    flex-shrink: 1;
+}
+
+#students > div {
+    margin-left: 5px;
+    padding: 10px;
+    border-radius: 6px;
+}
