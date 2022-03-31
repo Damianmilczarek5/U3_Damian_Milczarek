@@ -127,3 +127,25 @@ p {
     background-color: lightcoral;
     border: solid green 2px;
 }
+
+.darkmode{
+   background-color: #0f0f0a;
+    
+  }
+
+.darkmode > #mainWrapper { 
+   background-color: #1f1f14; 
+}
+
+.darkmode #container,
+.darkmode form,
+.darkmode #faculty {
+   background-color:  #2e2e1f;
+}
+
+.darkmode h4,
+.darkmode p,
+.darkmode header,
+.darkmode h3 {
+    color: white;
+} 
