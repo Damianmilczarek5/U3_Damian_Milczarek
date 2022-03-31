@@ -32,9 +32,7 @@ function renderCourse(id){
     document.querySelector("#wrapper").appendChild(div)
     return div
 }
-<<<<<<< Updated upstream
 
-=======
 // renders all the courses in database 
 function renderCourses (students){
     let coursesElement = document.getElementById("wrapper")
@@ -44,7 +42,7 @@ function renderCourses (students){
     }
 }
 // pulls out titles of course in database
->>>>>>> Stashed changes
+
 function courseTitle (id){
     let course = DATABASE.courses[id]
     return course.title
@@ -84,22 +82,6 @@ function allCourseTeachers(id){
 
 // renders the students that have taken the specific course 
 function allCourseStudents (id){
-<<<<<<< Updated upstream
-    let courseId = DATABASE.courses[id]
-    let students = []
-    for (let student of allStudents){
-        for (let courses of student.courses){
-            for (let i = 0; i < courses.length; i++){
-                if (courses[i].id == courseId){
-                    students.push(student.map((student) => student.firstName + " " + student.lastName + " " + `(${student.courses[i].passedCredits})`))
-                }
-            }
-        }
-    }
-    return students.toString().split(",").join(" ");
-}
-
-=======
     let studentsDiv = []
     let courseId = DATABASE.courses[id].courseId
     let students = allStudents.filter((student) => student.courses.some((course) => course.courseId == courseId))
@@ -158,4 +140,3 @@ function searchWord (){
 }
 // eventlistener that indicates which key user presses on his keyboard
 document.getElementById("course-title").addEventListener("keyup", courseSearch)
->>>>>>> Stashed changes

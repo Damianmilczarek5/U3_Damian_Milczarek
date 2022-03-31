@@ -76,12 +76,8 @@ function renderCourses (student){
     return courseDiv.toString().split(",").join(" ");
 }
 
-<<<<<<< Updated upstream
-function studentLastName () {
-=======
 // function for when user types in search box it filters trought possible hits
 function studentLastname (){
->>>>>>> Stashed changes
     let studentsArray = []
     for (let i = 0; i < allStudents.length; i++){
         document.querySelector("#wrapper").innerHTML = ""
@@ -99,10 +95,5 @@ function searchWord (){
     let search = document.getElementById("lastname")
     return search.value
 }
-<<<<<<< Updated upstream
-
-document.getElementById("lastname").addEventListener("keyup", studentLastname())
-=======
 // eventlistener that indicates which key user presses on his keyboard
 document.getElementById("lastname").addEventListener("keyup", studentLastname)
->>>>>>> Stashed changes
